@@ -14,13 +14,8 @@ const cart = [
 function applyDiscounts(cart) {
     const result = [];
     for (const item of cart) {
-        const discountedPrice = calculateDicsountedPrice(item.price, item.discountPercent);
-        result.push({
-            title: item.title,
-            originalPrice: item.price,
-            discountPercent: item.discountPercent,
-            discountedPrice: discountedPrice
-        });
+        const diskon = (item.price * item.discountPercent) / 100;
+        result[item.title] = item.price - diskon;
     }
     return result;
 }
