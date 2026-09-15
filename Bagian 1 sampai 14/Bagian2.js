@@ -1,27 +1,6 @@
-const name = "Budi";
-console.log(`Halo, ${name}`);
+// bagian 2
 
-function calculateDicsountedPrice(price, discountPercent) {
-    return price - (price *discountPercent) / 100;
-}
-
-const cart = [
-    {title: "Laptop", price: 1000, discountPercent: 10},
-    {title: "Mouse", price: 20, discountPercent: 5},
-    {title: "Keyboard", price: 50, discountPercent: 0}
-];
-
-function applyDiscounts(cart) {
-    const result = [];
-    for (const item of cart) {
-        const diskon = (item.price * item.discountPercent) / 100;
-        result[item.title] = item.price - diskon;
-    }
-    return result;
-}
-console.log(applyDiscounts(cart));
-
-const products = [
+const products1 = [
   { id: 1, title: "Laptop", price: 1200, category: "laptops", stock: 5 },
   { id: 2, title: "Smartphone", price: 800, category: "phones", stock: 15 },
   { id: 3, title: "Headphones", price: 100, category: "audio", stock: 3 },
@@ -54,12 +33,17 @@ const products = [
   { id: 30, title: "VR Headset", price: 400, category: "gaming", stock: 4 }
 ];
 
-function findProductById(products, id) {
-  return products.find(product => product.id === id);
+function findProductById(products1, id) {
+  return products1.find(product => product.id === id);
 }
 
-const product = findProductById(products, 5);
+const product = findProductById(products1, 5);
 console.log(product);
 
-const lowStock = products.filter(product => product.stock < 10);
+const lowStock = products1.filter(product => product.stock < 10);
 console.log(lowStock);
+
+function updateStock(products1, id, newStock) { return products1.map(p => p.id === id ? { ...p, stock: newStock } : p ); }
+const updatedProducts = updateStock(products1, 3, 20);
+console.log(updatedProducts);
+
